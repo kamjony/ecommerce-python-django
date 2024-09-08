@@ -12,7 +12,9 @@ class CreateUserForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(CreateUserForm, self).__init__(*args, **kwargs)
-
+        #Mark email field as required
+        self.fields['email'].required = True
+        
 
     #Email validation
     
@@ -20,7 +22,9 @@ class CreateUserForm(UserCreationForm):
         email = self.cleaned_data.get("email")
         
         if User.objects.filter(email=email).exists():
-            raise forms.ValidationError('This email is invalid')
+            raise forms.ValidationError('This email already exists')
         
-        if len(email >= 350):
+        if len(email) >= 350:
             raise forms.ValidationError('Your email is too long')
+        
+        return email
