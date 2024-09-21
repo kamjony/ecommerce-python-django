@@ -141,10 +141,12 @@ MEDIA_ROOT = BASE_DIR / 'static/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'account.backend.email_backend.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = 'False'
+from decouple import config
 
-EMAIL_HOST_USER = 'kamjony7@gmail.com'
-EMAIL_HOST_PASSWORD = 'nurdedfsfyeiswmd'
+
+EMAIL_BACKEND = 'account.backend.email_backend.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = 'False'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
