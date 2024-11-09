@@ -1,3 +1,49 @@
-<h1> This is dashboard </h1>
+{% include 'store/base.html' %}
+{% load static %}
 
-<a class="btn btn-alert navbar-btn" type="button"  href="{% url 'user-logout' %}"> Log out </a>
+{% block content %}
+
+<style>
+    body {
+        background-color: gray;
+    }
+
+</style>
+
+<body>
+    <br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h4>Welcome, {{user}} </h4>
+        <hr>
+
+        <p> This is your dashboard where you can perform any of the following: </p>
+        <li> Track your orders </li>
+        <li> Manage your account </li>
+        <br>
+        <br>
+
+    </div>
+    <br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h4>Track your orders </h4>
+        <hr>
+
+        <a class="btn btn-primary navbar-btn" type="button"  href="{% url 'user-logout' %}"> My orders </a>
+
+    </div>
+    <br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h4>Manage your account </h4>
+        <hr>
+
+        <a class="btn btn-primary navbar-btn" type="button"  href="{% url 'profile-management' %}"> Profile Management </a>
+        <br><br>
+        <a class="btn btn-outline-danger navbar-btn" type="button"  href="{% url 'user-logout' %}"> Log out </a>
+        <br>
+    </div>
+    <br>
+    <div class="container bg-white shadow-md p-5 form-layout"></div>
+    
+
+
+{% endblock %}
