@@ -23,9 +23,9 @@
                 {% csrf_token %}
 
                 {{user_form.username|as_crispy_field}}
-                <br> <br>
+                <br>
                 {{user_form.email|as_crispy_field}}
-                <br> <br>
+                <br>
 
                 <button type="submit" class="btn btn-dark btn-lg w-100 btn-block p-2"> &nbsp; Update </button>
 
@@ -34,7 +34,14 @@
 
         </div>
         <br>
-        <br>
+        <div class="container bg-white shadow-md p-5 form-layout">
+            <h3> Delete your account </h3>
+
+            <hr>
+            <p> Proceed if you wish to delete your account. </p>
+            <br>
+            <a class="btn btn-danger navbar-btn" type="button"  href="{% url 'delete-account' %}"> Delete your account </a>
+        </div>
 
 
     </body>
