@@ -14,9 +14,13 @@
     <body>
         <br>
         <div class="container bg-white shadow-md p-5 form-layout">
-            <h3> Update your account </h3>
+            <h2> Profile Management </h2>
+        </div>
+        <br>
+        <div class="container bg-white shadow-md p-5 form-layout">
+            <h4> Update your account </h4>
 
-            <br>
+            <hr>
             <br>
 
             <form method="POST" autocomplete="off">
@@ -35,12 +39,11 @@
         </div>
         <br>
         <div class="container bg-white shadow-md p-5 form-layout">
-            <h3> Delete your account </h3>
+            <h4> Delete your account </h4>
 
             <hr>
             <p> Proceed if you wish to delete your account. </p>
-            <br>
-            <a class="btn btn-danger navbar-btn" type="button"  href="{% url 'delete-account' %}"> Delete your account </a>
+            <a class="btn btn-danger w-100 btn-block p-2" type="button"  href="{% url 'delete-account' %}"> Delete your account </a>
         </div>
 
 
