@@ -48,3 +48,21 @@ class UpdateUserForm(forms.ModelForm):
         model = User
         fields = ['username', 'email']
         exclude = ['password1', 'password1']
+
+    def __init__(self, *args, **kwargs):
+        super(UpdateUserForm, self).__init__(*args, **kwargs)
+        #Mark email field as required
+        self.fields['email'].required = True
+
+     #Email validation
+    
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        
+        if User.objects.filter(email=email).exclude(pk=self.instance.pk).exists():
+            raise forms.ValidationError('This email already exists')
+        
+        if len(email) >= 350:
+            raise forms.ValidationError('Your email is too long')
+        
+        return email
